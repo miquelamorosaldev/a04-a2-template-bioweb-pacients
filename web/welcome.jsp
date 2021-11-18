@@ -20,9 +20,9 @@
         </header>
         <main>
             <div class="container mw-100"> <!-- comment -->
-                <h3>WELCOME</h3>
+                <h3>Llista de pacients</h3>
                 <p>Benvingut al nostre portal de bioinformàtica.</p>
-                <p>On podràs trobar notícies, utilitats i gestió d'usuaris.</p>
+                <p>On podràs trobar notícies, utilitats i gestió de pacients.</p>
             </div>
         </main>
         <footer>

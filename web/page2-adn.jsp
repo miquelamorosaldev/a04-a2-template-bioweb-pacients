@@ -33,7 +33,7 @@
                 <h3>VALIDACIÓ FORMAT ADN.</h3>
                 <!-- RWD Form -->
                 <div class="form-row">
-                    <form method="post" action="page2.jsp">
+                    <form method="post" action="page2-adn.jsp">
                         <div class="form-group col-md-6">
                             
                             <label for='ADN_field'>ADN:</label>

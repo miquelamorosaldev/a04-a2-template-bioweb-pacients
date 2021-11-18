@@ -7,9 +7,9 @@
         <a class='flex-sm-fill text-sm-center nav-link active opt-menu' 
            href='welcome.jsp'>Welcome</a>
         <a class='flex-sm-fill text-sm-center nav-link opt-menu' 
-           href='page2.jsp'>ADNValidator</a>
+           href='page2-adn.jsp'>ADNValidator</a>
         <a class='flex-sm-fill text-sm-center nav-link opt-menu' 
-           href='page3.jsp'>Page 3</a>
+           href='page3-addPatient.jsp'>Page 3</a>
         <a class='flex-sm-fill text-sm-center nav-link opt-menu' 
            href='news.jsp'>News</a>
     </nav>
