@@ -42,6 +42,14 @@
                                 placeholder='Cognom'></input>
                         </div>
                         <div class="form-group col-md-6">
+                            <label for='age'>Genero (*) </label>
+                            <select class="form-control" id="genero" name="genero">
+                                <option value="gen-feme">Mujer</option>
+                                <option value="gen-masc">Hombre</option>
+                                <option value="gen-otro">Prefiero no decirlo</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
                             <input class="btn btn-primary" type="submit" name="ok" value="Insertar"/>
                             <input class="btn btn-danger" type="reset" name="reset" value="Borrar"/>
                         </div>
@@ -54,22 +62,24 @@
                 String name = "";
                 String surname = "";
                 String ageField = ""; int age = 0;
+                String genero = "";
                 Validation validator = new Validation(); 
                 if(request.getParameter("ok")!=null) {
                     // Obtenció dels camps del form.
                     name = request.getParameter("name");
                     surname = request.getParameter("surname");
                     ageField = request.getParameter("age");
+                    genero = request.getParameter("genero");
                     // Validem els camps de text.
                     resultOK = name != null && surname !=null;
-                    ageField = request.getParameter("age");
                     
                     age = validator.validInteger(ageField);
                     resultOK = resultOK && age > 1;
                     // Si tots els camps són correctes.
                     if(resultOK) {
-                        out.println("<p class='bg-success'> Bon dia " + name + 
-                                " " + surname + "</p>");
+                        out.println("<p class='bg-success'> Bon dia " + genero 
+                                + " " + name + 
+                                " " + surname + "</p>" );
                     // Si no ho son mostrem missatge d'error.
                     } else {
                         out.println("<p class='error'>"
