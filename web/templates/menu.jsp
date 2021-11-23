@@ -9,7 +9,9 @@
         <a class='flex-sm-fill text-sm-center nav-link opt-menu' 
            href='page2-adn.jsp'>ADNValidator</a>
         <a class='flex-sm-fill text-sm-center nav-link opt-menu' 
-           href='page3-addPatient.jsp'>Page 3</a>
+           href='page3-addPatient.jsp'>Add Patient</a>
+        <a class='flex-sm-fill text-sm-center nav-link opt-menu' 
+           href='page1-listPatients.jsp'>List Patients</a>
         <a class='flex-sm-fill text-sm-center nav-link opt-menu' 
            href='news.jsp'>News</a>
     </nav>

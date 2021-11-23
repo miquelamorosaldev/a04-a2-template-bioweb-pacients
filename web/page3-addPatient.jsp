@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="adnutils.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,23 +24,59 @@
                 <h3>Afegir pacient</h3>
                 <!-- RWD Form -->
                 <!-- https://getbootstrap.com/docs/4.1/components/forms/ -->
-                <div class="form-row">
-                    <form method="post" action="page3-addPatient.jsp">
+                <form method="post" action="page3-addPatient.jsp">
+                    <div class="form-row">
                         <div class="form-group col-md-6">
-                            
-                            <label for='name'>Nombre</label>
-                            <input type="text" required id='name' name="name" rows="10" cols="30" 
+                            <label for='name'>Nombre (*)  </label>
+                            <input class="form-control" type="text" required id='name' name="name" rows="10" cols="30" 
                                 placeholder='Nom'></input>
-                            <label for='name'>Apellidos</label>
-                            <input type="text" required id='surname' name="surname" rows="10" cols="30" 
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for='name'>Apellidos (*) </label>
+                            <input class="form-control" type="text" required id='surname' name="surname" rows="10" cols="30" 
                                 placeholder='Cognom'></input>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="submit" name="ok" value="Instertar"/>
+                            <label for='age'>Edad (*) </label>
+                            <input class="form-control" type="number" required id='age' name="age" rows="10" cols="30" 
+                                placeholder='Cognom'></input>
                         </div>
-                    </form> 
-                </div>
+                        <div class="form-group col-md-6">
+                            <input class="btn btn-primary" type="submit" name="ok" value="Insertar"/>
+                            <input class="btn btn-danger" type="reset" name="reset" value="Borrar"/>
+                        </div>
+                    </div>
+                </form> 
             </div>
+            <%
+                // Si ha clicat o no al botó del formulari
+                boolean resultOK = false;
+                String name = "";
+                String surname = "";
+                String ageField = ""; int age = 0;
+                Validation validator = new Validation(); 
+                if(request.getParameter("ok")!=null) {
+                    // Obtenció dels camps del form.
+                    name = request.getParameter("name");
+                    surname = request.getParameter("surname");
+                    ageField = request.getParameter("age");
+                    // Validem els camps de text.
+                    resultOK = name != null && surname !=null;
+                    ageField = request.getParameter("age");
+                    
+                    age = validator.validInteger(ageField);
+                    resultOK = resultOK && age > 1;
+                    // Si tots els camps són correctes.
+                    if(resultOK) {
+                        out.println("<p class='bg-success'> Bon dia " + name + 
+                                " " + surname + "</p>");
+                    // Si no ho son mostrem missatge d'error.
+                    } else {
+                        out.println("<p class='error'>"
+                                + "Els camps requerits no tenen el format correcte.</p>");
+                    }
+                } 
+           %>
         </main>
         <footer>
             <%@include file="templates/footer.jsp" %>

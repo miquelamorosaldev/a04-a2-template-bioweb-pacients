@@ -14,7 +14,7 @@ public class Patient {
     /** 
      * Blood Type can be: A, O, AB, B.
      */
-    private char bloodType;
+    private String bloodType;
     /** 
      * RH can be +, -.
      */
@@ -29,7 +29,7 @@ public class Patient {
     private int height;
 
     
-    public Patient(String name, String surnames, String gender, char bloodType, char RH, int weight, int height) {
+    public Patient(String name, String surnames, String gender, String bloodType, char RH, int weight, int height) {
         this.name = name;
         this.surnames = surnames;
         this.gender = gender;
@@ -64,11 +64,11 @@ public class Patient {
         this.gender = gender;
     }
 
-    public char getBloodType() {
+    public String getBloodType() {
         return bloodType;
     }
 
-    public void setBloodType(char bloodType) {
+    public void setBloodType(String bloodType) {
         this.bloodType = bloodType;
     }
 
