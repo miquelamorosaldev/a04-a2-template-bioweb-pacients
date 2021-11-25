@@ -22,16 +22,18 @@ Cal informar a l’usuari si ha pogut registrar el pacient o bé no ha omplert t
 
 
 ## Observacions importants.
-Les dades dels pacients, ara per ara, seran:
-    • Nom → text
-    • Cognoms → text 
-    • Genere (home, done, NC) → select o option
-    • GrupSanguini→ select o option
-    • RH → select o option
-    • pes → text, validació número
-    • alcada → text, validació número
 
-Les dades en aquesta fase no seran persistents 
+Les dades dels pacients, ara per ara, seran:
+
+#### Nom → text
+#### Cognoms → text 
+#### Genere (home, done, NC) → select o option
+#### GrupSanguini→ select o option
+#### RH → select o option
+#### pes → text, validació número
+#### alcada → text, validació número
+
+Les dades en aquesta fase no seran persistents.
 Per ara, es guardaran en memòria mitjançant un ArrayList però es preveu que en un futur (el 2022) es gestionin en una base de dades SQL; així que es valorarà positivament usar el patró DAO per a poder fer el canvi d’escenari fàcilment.
 
 ## Algunes de les tasques que es preveu implementar en un futur.
