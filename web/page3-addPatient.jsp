@@ -6,6 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="adnutils.*" %>
+<%@page import="patients.IPatientsDAO" %>
+<%@page import="patients.PatientsMemoryDAO" %>
+<%@page import="patients.Patient" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,25 +31,25 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for='name'>Nombre (*)  </label>
-                            <input class="form-control" type="text" required id='name' name="name" rows="10" cols="30" 
+                            <input class="form-control" type="text" required id='name' name="name" 
                                 placeholder='Nom'></input>
                         </div>
                         <div class="form-group col-md-6">
                             <label for='name'>Apellidos (*) </label>
-                            <input class="form-control" type="text" required id='surname' name="surname" rows="10" cols="30" 
+                            <input class="form-control" type="text" required id='surname' name="surname"
                                 placeholder='Cognom'></input>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for='age'>Edad (*) </label>
-                            <input class="form-control" type="number" required id='age' name="age" rows="10" cols="30" 
-                                placeholder='Cognom'></input>
+                            <label for='altura'>Altura, en cms. (*) </label>
+                            <input class="form-control" type="number" required id='height' name="height" 
+                                placeholder='175'></input>
                         </div>
                         <div class="form-group col-md-6">
                             <label for='age'>Genero (*) </label>
                             <select class="form-control" id="genero" name="genero">
-                                <option value="gen-feme">Mujer</option>
-                                <option value="gen-masc">Hombre</option>
-                                <option value="gen-otro">Prefiero no decirlo</option>
+                                <option value="gen-wom">Mujer</option>
+                                <option value="gen-man">Hombre</option>
+                                <option value="gen-oth">Otros</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
@@ -61,25 +64,39 @@
                 boolean resultOK = false;
                 String name = "";
                 String surname = "";
-                String ageField = ""; int age = 0;
-                String genero = "";
+                String heightField = ""; int height = 0;
+                String gender = "";
                 Validation validator = new Validation(); 
                 if(request.getParameter("ok")!=null) {
                     // Obtenció dels camps del form.
                     name = request.getParameter("name");
                     surname = request.getParameter("surname");
-                    ageField = request.getParameter("age");
-                    genero = request.getParameter("genero");
+                    heightField = request.getParameter("height");
+                    gender = request.getParameter("genero");
                     // Validem els camps de text.
                     resultOK = name != null && surname !=null;
                     
-                    age = validator.validInteger(ageField);
-                    resultOK = resultOK && age > 1;
+                    height = validator.validInteger(heightField);
+                    
+                    resultOK = resultOK && height > 40;
+                    // Not age field in this form.
+                    // resultOK = resultOK && age > 1;
+                    
                     // Si tots els camps són correctes.
                     if(resultOK) {
-                        out.println("<p class='bg-success'> Bon dia " + genero 
+                        // debug
+                        out.println("<p class='bg-success'> Bon dia " + gender 
                                 + " " + name + 
                                 " " + surname + "</p>" );
+                        
+                        /* 
+                            Procedim a enviar les dades a la base de dades, i guardarles.
+                            PatientsMemoryDAO
+                        */
+                        // String name, String surnames, String gender, String bloodType, char RH, int weight, int height
+                        Patient patient = new Patient(name,surname,gender,"A",'+',70,height);
+                        IPatientsDAO daoPatients = new PatientsMemoryDAO();
+                        boolean insertIsOK = daoPatients.addPatient(patient);
                     // Si no ho son mostrem missatge d'error.
                     } else {
                         out.println("<p class='error'>"

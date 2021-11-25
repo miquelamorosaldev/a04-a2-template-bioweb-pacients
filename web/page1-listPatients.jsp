@@ -19,10 +19,9 @@
         <main>
             <div class="container mw-100"> <!-- comment -->
                 <h3>List Patients</h3>
-                <p>Done</p>
                 <ul>
                 <% 
-                    IPatientsDAO daoPatients = new PatientsMemoryDAO();
+                    PatientsMemoryDAO daoPatients = new PatientsMemoryDAO();
                     List<Patient> resultList = daoPatients.listAllPatients();
                     for(Patient pa: resultList) {
                 %>
@@ -32,6 +31,18 @@
                 %>
                 </ul>
                 <p><%=resultList.size()%> pacientes encontrados.</p>
+                <h4>List Woman Patients</h4>
+                <ol style="list-style-type:lower-alpha">
+                <% 
+                    List<Patient> resultListWoman = daoPatients.listWomanPatients();
+                    for(Patient paW: resultListWoman) {
+                %>
+                <li><%=paW.toString()%></li>
+                <% 
+                    }
+                %>
+                </ol>
+                <p><%=resultListWoman.size()%> pacientes encontradas.</p>
             </div>
         </main>
         <footer>

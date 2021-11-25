@@ -8,7 +8,7 @@ public class Patient {
     private String name;
     private String surnames;
     /** 
-     * Gender can be: woman, man, or undefined.
+     * Gender can be: gen-wom, gen-man, or gen-oth.
      */
     private String gender;
     /** 

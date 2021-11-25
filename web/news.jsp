@@ -23,7 +23,22 @@
             <div class="container mw-100"> <!-- comment -->
                 <h3>Pàgina 2. </h3>
                 <p>Notícies bioinformàtica.</p>
-                
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        Crean una herramienta bioinformática para analizar las variantes genéticas 
+                        del coronavirus
+                        <a href="https://www.eldiario.es/sociedad/crean-herramienta-bioinformatica-analizar-variantes-geneticas-coronavirus_1_8286727.html">
+                            diario.es; set 2021
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        Científicos reclaman en la revista 'Nature' integrar genética, bioinformática y 
+                        salud pública para evitar pandemias
+                        <a href="https://www.infosalus.com/salud-investigacion/noticia-cientificos-reclaman-revista-nature-integrar-genetica-bioinformatica-salud-publica-evitar-pandemias-20210304154828.html">
+                            Revista Nature; mar 2021
+                        </a>
+                    </div>
+                </div>
             </div>
         </main>
         <footer>

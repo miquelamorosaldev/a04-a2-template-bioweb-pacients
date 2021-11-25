@@ -22,11 +22,17 @@ public class PatientsMemoryDAO implements IPatientsDAO{
         if (patients == null) {
             patients = new ArrayList<>();
             patients.add(
-                new Patient("Flavio","Larrea Ayala","Hombre","A",'+',165,80));
+                new Patient("Flavio","Larrea Ayala","gen-man","A",'+',165,80));
             patients.add(
-                new Patient("Débora","Aramburu Galvez","Mujer","O",'+',170,70));
+                new Patient("Débora","Aramburu Galvez","gen-wom","O",'+',170,70));
             patients.add(
-                new Patient("Albano","Danilo Pla Gallo","NoContesta","AB",'-',180,71));
+                new Patient("Albano","Danilo Pla Gallo","gen-oth","AB",'-',180,71));
+            patients.add(
+                new Patient("Dorothy","Vaughan","gen-wom","B",'+',172,75));
+            patients.add(
+                new Patient("Mary","Jackson","gen-wom","A",'+',164,60));
+            patients.add(
+                new Patient("George","Mendel","gen-man","AB",'+',160,60));
         }
     }
     
@@ -40,6 +46,18 @@ public class PatientsMemoryDAO implements IPatientsDAO{
     public boolean addPatient(Patient patient) {
         // NOTA: Pending to validate Patient if exist or not.
         return patients.add(patient);
+    }
+    
+    public List<Patient> listWomanPatients() {
+        // List which will contain woman patients only. 
+        List<Patient> womanPatients = new ArrayList<>();
+        // gen-wom, gen-man, or gen-oth.
+        for (Patient patient : patients) {
+            if (patient.getGender().equals("gen-wom")) {
+                womanPatients.add(patient);
+            }
+        }
+        return womanPatients;
     }
     
 }
