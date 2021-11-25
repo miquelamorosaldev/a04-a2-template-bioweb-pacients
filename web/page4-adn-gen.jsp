@@ -47,42 +47,17 @@
         <%
             // Si ha clicat o no al botó del formulari
            if(request.getParameter("ok")!=null) {
-              // Obtenció ADN del form.
-              ADN_field = request.getParameter("ADN_field");    
-              out.println(ADN_field);
-              // Valida l'ADN 
+ 
               ADN_Manager adnManager = new ADN_Manager();
-              boolean result = adnManager.validaADN(ADN_field);
-              out.println(result);
-              // Si es vàlid, retorna resultat.
+              boolean result = false;
+              
+              // Si camps són vàlids, retorna resultat.
               if(result) {
-                int a = adnManager.numAdenines(ADN_field);
-                int c = adnManager.numCitosines(ADN_field);
-                int g = adnManager.numGuanines(ADN_field);
-                int t = adnManager.numTimines(ADN_field);
-
-  //              request.setParameter("resultat","---" + ADN_field + "---");
-  //              request.getRequestDispatcher("index.jsp").forward(request, response); 
-
-                // Mostrar resultats.
-                StringBuilder sb = new StringBuilder();
-
-                sb.append("<dl>");
-                sb.append("<dt>Num A</dt><dd>");
-                sb.append(a);
-                sb.append("<dt>Num C</dt><dd>");
-                sb.append(c);
-                sb.append("<dt>Num T</dt><dd>");
-                sb.append(t);
-                sb.append("<dt>Num G</dt><dd>");
-                sb.append(g);
-                sb.append("</dl>");
-                out.println(sb.toString());
                 
               } else {
-                  // Si no es vàlid, retorna missatge.
+                  // Si no són vàlid, retorna missatge.
                   out.println("<p class='error'> "
-                          + "L'ADN NO ÉS VALID, NOMÉS POT TENIR A,G,C,T </p>");
+                          + "Camps no vàlids. </p>");
               }
            }
         %>
