@@ -14,5 +14,7 @@
            href='page1-listPatients.jsp'>List Patients</a>
         <a class='flex-sm-fill text-sm-center nav-link opt-menu' 
            href='news.jsp'>News</a>
+        <a class='flex-sm-fill text-sm-center nav-link opt-menu' 
+           href='page4-adn-gen.jsp'>ADN Gen (Pt14Opt)</a>
     </nav>
 </nav>
