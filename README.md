@@ -1,6 +1,13 @@
-# a04-a2-template-bioweb-pacients
+# pt14-template-bioweb-pacients
 
-Plantilla Activitat 04.
+### Plantilla Pràctica Pt14 - Programació web amb JSP.
+
+### Requeriments.
+* JDK 8 o superior
+* Apache Netbeans 12.
+* Servidor Java Web funcionant: Apache Tomcat 9 o Glassfish 5.
+
+## Enunciat.
 
 L’ICS ens ha demanat la primera fase d’una aplicació web per a gestionar dades bàsiques de pacients de la secció d’oncologia. 
 En un futur, voldran crear un portal web amb una intranet on només es podran connectar els usuaris autoritzats. 
